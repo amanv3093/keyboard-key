@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+        }
+        body{
+            background-image:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("photo-1567360425618-1594206637d2.jpeg");
+        }
+        section{
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
+        }
+        #txt{
+            font-size: 45px;
+    margin-top: 3rem;
+    width: 35rem;
+    text-align: center;
+    padding: 20px 12px;
+    border: 2px solid red;
+    box-shadow: 0px 0px 7px 0px red;
+
+
+        }
+        #para{
+            font-size: 80px;
+            border: 2px solid red;
+    box-shadow: 0px 0px 7px 0px red;
+    width: 9rem;
+    margin-top: 3rem;
+    text-align: center;
+    display: none;
+    padding: 40px 10px;
+        }
+
+    </style>
+</head>
+<body>
+<section>
+<h1 id="txt">press any keyboard key</h1>
+<p id="para"></p>
+</section>
+<audio id="myAudio" src="mech-keyboard-02-102918.mp3" preload="auto"></audio>
+
+
+<script>
+
+
+    
+
+  
+    let para=document.getElementById("para");
+    let txt=document.getElementById("txt");
+    var audio = document.getElementById("myAudio");
+    let s=document;
+   
+
+    document.addEventListener("keydown",(e)=>{
+        let x=e.key;
+       
+        txt.style.marginTop="-3rem"
+        if(e.ctrlKey){
+            txt.innerText="You pressed ctrl + "+x;
+            para.innerText=e.keyCode;
+
+        }else if(e.keyCode==32){
+            txt.innerText="You pressed Backspace";
+            para.innerText=e.keyCode;
+        }else{
+            txt.innerText="You pressed "+x;
+            para.innerText=e.keyCode;
+        }
+
+        
+   
+        audio.play();
+        para.style.display="block"
+        
+    })
+</script>
+
+    
+</body>
+</html>
